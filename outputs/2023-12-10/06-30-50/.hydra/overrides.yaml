@@ -1,0 +1,3 @@
+- exp.name=pn_sp_5shot
+- method=protonet
+- dataset=swissprot

@@ -1,0 +1,3 @@
+- exp.name=prot_protonet
+- method=protonet
+- dataset=swissprot

@@ -1,0 +1,3 @@
+- exp.name=mn_sp_3shot
+- method=matchingnet
+- dataset=swissprot

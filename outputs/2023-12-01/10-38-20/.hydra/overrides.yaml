@@ -1,0 +1,3 @@
+- exp.name=maml_training_1shot2
+- method=protonet
+- dataset=swissprot

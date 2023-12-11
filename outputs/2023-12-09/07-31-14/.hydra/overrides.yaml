@@ -1,0 +1,3 @@
+- exp.name=pn_tm_1shot
+- method=protonet
+- dataset=tabula_muris

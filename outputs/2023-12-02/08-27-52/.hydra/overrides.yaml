@@ -1,0 +1,3 @@
+- exp.name=prnet
+- method=protonet
+- dataset=swissprot

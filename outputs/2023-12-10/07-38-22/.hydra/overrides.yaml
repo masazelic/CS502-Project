@@ -1,0 +1,5 @@
+- exp.name=pn_sp_5shot
+- method=protonet
+- dataset=swissprot
+- mode=test
+- checkpoint.time='20231210_063330'

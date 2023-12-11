@@ -1,0 +1,13 @@
+
+defaults:
+  - meta_base
+
+cls:
+  _target_: methods.relationnet.RelationNet
+
+name: relationnet
+
+relation_backbone:
+  _target_: backbones.fcnet.FCNetRN
+  layer_dim: [256, 256]
+  hidden_dim: 128

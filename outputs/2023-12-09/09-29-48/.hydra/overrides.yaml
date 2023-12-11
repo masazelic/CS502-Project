@@ -1,0 +1,3 @@
+- exp.name=rn_sp_10shot
+- method=relationnet
+- dataset=swissprot

@@ -1,0 +1,3 @@
+- exp.name=RN_swissprot
+- method=relationnet
+- dataset=swissprot

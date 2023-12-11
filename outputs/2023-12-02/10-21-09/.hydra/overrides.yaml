@@ -1,0 +1,3 @@
+- exp.name=RN_5shot_5way
+- method=relationnet
+- dataset=swissprot
