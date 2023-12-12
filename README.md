@@ -1,4 +1,4 @@
-# CS502-Project
+# CS502-Project: Extending Few-Shot Learning Benchmark with RelationNet model
 
 This repository is coding part of the Few-Shot Learning benchmark for the Biomedical datasets, developed by [Brbic Lab](https://brbiclab.epfl.ch/) and extended by Marija Zelic and Elena Mrdja with Relation Network algorithm. `README.md` has been mainly taken from the [Brbic Lab](https://brbiclab.epfl.ch/) with modifications added for the specifics of the RelationNet model.
 
