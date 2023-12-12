@@ -33,11 +33,12 @@ python -m pip install -r requirements.txt
 
 ### Training  
 
-For the hyperparameter tuning of the RelationNet model for the specific problem and dataset, first go to the '''hyperparameter_tuning.py''' and inside '''main()''' function change n_way, n_suport, n_query and dataset name ('swissprot' or 'tabula_muris') and then run following command:  
+For the hyperparameter tuning of the RelationNet model for the specific problem and dataset, first go to the `hyperparameter_tuning.py`. Inside `if __name__ == '__main__':` function change parameters n_way, n_suport, n_query and dataset name (`swissprot` or `tabula_muris`) according to your problem and then run following command:  
 
 ```bash
 python hyperparameter_tuning.py
-```
+```  
+By default, hyperparameter tuning is set to the Swiss-Prot dataset, 5-way, 5-shot, 15-query problem. It is also important keep line `wandb.log({"loss": avg_loss / float(i + 1)})` in the `meta_template.py`'s `train_loop()` function commented, during this execution.
 
 The training process will automatically evaluate at the end. To only evaluate without
 running training, use the following:
@@ -57,3 +58,8 @@ running training, use the following:
 ```bash
 python run.py exp.name={exp_name} method=maml dataset=tabula_muris mode=test
 ```
+
+Run `run.py` with the same parameters as the training run, with `mode=test` and it will automatically use the
+best checkpoint (as measured by val ACC) from the most recent training run with that combination of
+exp.name/method/dataset/model. To choose a run conducted at a different time (i.e. not the latest), pass in the timestamp
+in the form `checkpoint.time="'yyyymmdd_hhmmss'"` To choose a model from a specific epoch, use `checkpoint.iter=40`. 

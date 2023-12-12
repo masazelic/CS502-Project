@@ -151,7 +151,7 @@ def hyperparameter_tuning(n_way, n_support, n_query, dataset='swissprot'):
     print("Hidden dim:", hd)
     
 if __name__ == '__main__':
-    hyperparameter_tuning(5, 5, 15, 'swissprot')
+    hyperparameter_tuning(n_way=5, n_support=5, n_query=15, dataset='swissprot')
                         
                        
                             
