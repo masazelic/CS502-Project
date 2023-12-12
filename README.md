@@ -38,7 +38,7 @@ For the hyperparameter tuning of the RelationNet model for the specific problem 
 ```bash
 python hyperparameter_tuning.py
 ```  
-By default, hyperparameter tuning is set to the Swiss-Prot dataset, 5-way, 5-shot, 15-query problem. It is also important to keep line `wandb.log({"loss": avg_loss / float(i + 1)})` in the `meta_template.py`'s `train_loop()` function commented, during this execution.
+By default, hyperparameter tuning is set to the Swiss-Prot dataset, 5-way, 5-shot, 15-query problem. It is also important to keep line `wandb.log({"loss": avg_loss / float(i + 1)})` in the `meta_template.py`'s `train_loop()` function commented, during this execution. To perform more coarser grid search, add necessary parameters to the respective lists in the `hyperparameter_tuning()` function in the `hyperparameter_tuning.py` file. 
 
 The training process will automatically evaluate at the end. To only evaluate without
 running training, use the following:
