@@ -96,7 +96,7 @@ def hyperparameter_tuning(n_way, n_support, n_query, dataset='swissprot'):
     learning_rate = [0.01, 0.01, 0.0001]
     epochs = [40, 60, 80]
     backbone_layers = [[512, 512], [512], [128], [64, 64]]
-    backbone_relation_layers = [[256, 256], [256, 64], [128]]
+    backbone_relation_layers = [[256, 256], [256, 64], [256], [128]]
     hidden_dim = [128, 64, 32]
     
     best_mean_acc = -1
