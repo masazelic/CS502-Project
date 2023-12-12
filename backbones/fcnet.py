@@ -83,9 +83,21 @@ class EnFCNet(nn.Module):
         return x
 
 class FCNetRN(nn.Module):
+    """ Class for the backbone of the RelationNet relation module."""
     fast_weight = False # Default
 
     def __init__(self, x_dim, hidden_dim, layer_dim=[64, 64], dropout=0.2, fast_weight=False):
+        """
+        Initialization of the FCNetRN backcbone. 
+        
+        Args:
+            x_dim (int): second dimension of the input x
+            hidden_dim (int): second dimension of the first hidden layer
+            layer_dim (list, optional): dimensions of the hidden layer, defaults to [64, 64]
+            dropout (float, optional): dropout probability, defaults to 0.2.
+            fast_weight (bool, optional): fast weights parameter, defaults to False.
+
+        """"
         super(FCNetRN, self).__init__()
         self.fast_weight = fast_weight
 
@@ -100,6 +112,7 @@ class FCNetRN(nn.Module):
       
         self.encoder = nn.Sequential(*layers)
 
+        # Following architeture of the original paper
         # First FC layer for Relation Module of RN
         self.fc1 = nn.Linear(in_dim, hidden_dim)
         # Second FC layer 

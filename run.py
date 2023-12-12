@@ -33,14 +33,13 @@ def initialize_dataset_model(cfg):
     else:
         # For RelationNet we have to instantiate another backbone layer for calculating relation scores
         if cfg.method.name == "relationnet":
-            print("usao")
             backbone = instantiate(cfg.backbone, x_dim=train_dataset.dim)
             backbone_relation = instantiate(cfg.method.relation_backbone, x_dim=cfg.backbone.layer_dim[-1]*2)
         else:
             backbone = instantiate(cfg.backbone, x_dim=train_dataset.dim)
             backbone_relation=None
 
-    # Instantiate few-shot method class
+    # Instantiate few-shot method class, again for RelationNet we have additional relation module backbone to initialize
     if cfg.method.name == "relationnet":
         model = instantiate(cfg.method.cls, backbone=backbone, backbone_relation=backbone_relation)
     else:

@@ -19,7 +19,7 @@ class MetaTemplate(nn.Module):
         self.relation_score = backbone_relation
         self.feat_dim = self.feature.final_feat_dim
         self.change_way = change_way  # some methods allow different_way classification during training and test
-        self.is_rn = is_rn
+        self.is_rn = is_rn # parameter that tells whether method is RelationNet or not
 
         if torch.cuda.is_available():
             self.device = torch.device("cuda")
@@ -64,6 +64,8 @@ class MetaTemplate(nn.Module):
         top1_correct = np.sum(topk_ind[:, 0] == y_query)
         return float(top1_correct), len(y_query)
     
+    # Function implemented by Marija Zelic and Elena Mrdja
+    # Serves for counting correctly classified samples
     def correct_rn(self, x):
         # Compute relation scores
         relation_scores = self.set_forward(x) # shape: n_way * n_query, n_way
@@ -134,7 +136,7 @@ class MetaTemplate(nn.Module):
                 self.n_query = x.size(1) - self.n_support
                 if self.change_way:
                     self.n_way = x.size(0)
-                    
+                # Additional check-up in the test loop to whether to apply correct or correct_rn  
                 if self.is_rn == False:
                     correct_this, count_this = self.correct(x)
                 else:
